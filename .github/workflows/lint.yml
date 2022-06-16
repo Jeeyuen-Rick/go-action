@@ -30,6 +30,6 @@ jobs:
       - name: lint Go Code
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
-          go install -u golang.org/x/lint/golint
+          go install golang.org/x/lint/golint
         
           golangci-lint run
