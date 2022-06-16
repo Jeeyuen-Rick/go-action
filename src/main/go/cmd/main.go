@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"https://github.com/Jeeyuen-Rick/go-action/src/main/go/cmd/hello"
+	"github.com/Jeeyuen-Rick/go-action/src/main/go/cmd/hello/v2"
 )
 
 func main() {
