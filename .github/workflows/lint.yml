@@ -31,4 +31,5 @@ jobs:
         uses: golangci/golangci-lint-action@v3
         with:
           version: v1.46.2
-          working-directory: src
+          working-directory: src/main/go/cmd
+          args: --disable-all -E revive
