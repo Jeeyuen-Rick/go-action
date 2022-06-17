@@ -32,7 +32,7 @@ jobs:
           go-version: ${{ matrix.go }}
         
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v2
+        uses: golangci/golangci-lint-action@v3
         with:
           version: v1.46.2
           args: ./... --disable-all -E revive
