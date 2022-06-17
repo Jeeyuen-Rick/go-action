@@ -28,4 +28,6 @@ jobs:
         
       - name: Check out code and run test
         uses: actions/checkout@v3
-      - run: go test -json ./... > test.json
+      - run:
+        go work use .
+        go test ./...
