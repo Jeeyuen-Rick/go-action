@@ -1,4 +1,4 @@
-name: Lint Go Code
+name: Run test
 
 # Controls when the workflow will run
 on:
@@ -18,19 +18,14 @@ jobs:
         matrix:
           go: [1.18.2]
           os: [macos-latest, windows-latest, ubuntu-latest]
-    name: Lint
+    name: Test
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-      
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go }}
         
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v3
-        with:
-          version: v1.46.2
-          args: go work edit -json | jq -r '.Use[].DiskPath'  | xargs -I{} golangci-lint run {}/...
+      - name: Check out code and run test
+        uses: actions/checkout@v3
+      - run: go test ./...
