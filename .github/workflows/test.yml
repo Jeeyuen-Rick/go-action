@@ -16,7 +16,7 @@ jobs:
   lint:
     strategy:
         matrix:
-          go: [1.18.2]
+          go: [1.18.3]
           os: [macos-latest, windows-latest, ubuntu-latest]
     name: Test
     runs-on: ${{ matrix.os }}
@@ -28,4 +28,4 @@ jobs:
         
       - name: Check out code and run test
         uses: actions/checkout@v3
-      - run: go test -json ./... > test.json
+      - run: go test ./...
