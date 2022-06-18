@@ -1,4 +1,4 @@
-name: Run test
+name: Run build
 
 # Controls when the workflow will run
 on:
@@ -11,7 +11,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run test
+# A workflow run build
 jobs:
   lint:
     strategy:
@@ -28,4 +28,4 @@ jobs:
         
       - name: Check out code and run test
         uses: actions/checkout@v3
-      - run: go test ./...
+      - run: go build ./...
