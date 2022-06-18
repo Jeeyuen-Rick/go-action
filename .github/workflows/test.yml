@@ -28,4 +28,5 @@ jobs:
         
       - name: Check out code and run test
         uses: actions/checkout@v3
-      - run: go test {}/...
+        working-directory: src/main/go/cmd/hello
+      - run: go test
