@@ -16,7 +16,7 @@ jobs:
   lint:
     strategy:
         matrix:
-          go: [1.18.3]
+          go: [1.18.0]
           os: [macos-latest, windows-latest, ubuntu-latest]
     name: Build
     runs-on: ${{ matrix.os }}
