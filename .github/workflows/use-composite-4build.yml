@@ -1,6 +1,0 @@
-jobs:
-  composite_build:
-    name: use composite for setup
-    steps:
-      uses: actions/go-action@v1
-      - run: go build -ldflags="-s -w" ./...
