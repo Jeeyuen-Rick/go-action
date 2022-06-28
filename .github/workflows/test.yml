@@ -21,11 +21,7 @@ jobs:
     name: Test
     runs-on: ${{ matrix.os }}
     env:
-      GOPATH: ${{ github.workspace }}
       GO111MODULE: on
-    defaults:
-      run:
-        working-directory: ${{ env.GOPATH }}/github.com/${{ github.repository }}
     steps:
       - name: Set up Go
         uses: actions/setup-go@v3
@@ -34,6 +30,4 @@ jobs:
         
       - name: Check out code and run test
         uses: actions/checkout@v3
-        with:
-          path: ${{ env.GOPATH }}/github.com/${{ github.repository }}
-      - run: go test ./...
+      - run: go test --out-format=github-actions -- $(go work edit -json | jq -c -r '[.Use[].DiskPath] | map_values(. + "/...")[]')
