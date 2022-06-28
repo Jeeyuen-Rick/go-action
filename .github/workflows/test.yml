@@ -26,7 +26,6 @@ jobs:
     defaults:
       run:
         working-directory: ${{ env.GOPATH }}/src/github.com/${{ github.repository }}
-        echo **** ${{ working-directory }} ****
     steps:
       - name: Set up Go
         uses: actions/setup-go@v3
